@@ -1,21 +1,715 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Loops - Bot Developer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NanTheDu | Discord Bot & Website Developer</title>
+
+    <meta name="description"
+          content="NanTheDu - Discord bot developer and simple website developer.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0b0b14;
+            color: #f4f4f7;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ---------- Background ---------- */
+
+        body::before {
+            content: "";
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            background: #7c3aed;
+            opacity: 0.12;
+            filter: blur(140px);
+            border-radius: 50%;
+            top: -150px;
+            left: -150px;
+            z-index: -1;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            width: 450px;
+            height: 450px;
+            background: #06b6d4;
+            opacity: 0.10;
+            filter: blur(140px);
+            border-radius: 50%;
+            right: -150px;
+            bottom: -100px;
+            z-index: -1;
+        }
+
+        /* ---------- Navigation ---------- */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(15px);
+            background: rgba(11, 11, 20, 0.75);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 18px 25px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: white;
+        }
+
+        .logo span {
+            color: #a78bfa;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            color: #c7c7d1;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        nav a:hover {
+            color: #a78bfa;
+        }
+
+        /* ---------- General ---------- */
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 0 25px;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-size: 2.3rem;
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle {
+            color: #a5a5b2;
+            margin-bottom: 45px;
+        }
+
+        /* ---------- Hero ---------- */
+
+        .hero {
+            min-height: 90vh;
+
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 15px;
+            border-radius: 999px;
+
+            background: rgba(124, 58, 237, 0.15);
+            border: 1px solid rgba(167, 139, 250, 0.3);
+
+            color: #c4b5fd;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            line-height: 1;
+            margin-bottom: 25px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(
+                90deg,
+                #a78bfa,
+                #22d3ee,
+                #f472b6
+            );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #b7b7c3;
+            max-width: 650px;
+            margin-bottom: 35px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 13px 22px;
+            border-radius: 10px;
+
+            text-decoration: none;
+            font-weight: 700;
+
+            transition: 0.25s;
+        }
+
+        .button-primary {
+            background: linear-gradient(90deg, #7c3aed, #06b6d4);
+            color: white;
+        }
+
+        .button-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(124, 58, 237, 0.3);
+        }
+
+        .button-secondary {
+            border: 1px solid #333344;
+            color: #dddde8;
+            background: rgba(255,255,255,0.03);
+        }
+
+        .button-secondary:hover {
+            border-color: #7c3aed;
+            transform: translateY(-3px);
+        }
+
+        /* ---------- Services ---------- */
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .service-card {
+            padding: 30px;
+
+            background: rgba(255,255,255,0.035);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 18px;
+
+            transition: 0.25s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(167,139,250,0.5);
+            background: rgba(255,255,255,0.055);
+        }
+
+        .service-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            color: #a9a9b5;
+        }
+
+        /* ---------- Projects ---------- */
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            background: #11111d;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 18px;
+            overflow: hidden;
+
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-7px);
+            border-color: rgba(34,211,238,0.4);
+        }
+
+        .project-banner {
+            height: 160px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 3.5rem;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(124,58,237,0.35),
+                    rgba(6,182,212,0.25)
+                );
+        }
+
+        .project-content {
+            padding: 28px;
+        }
+
+        .project-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .project-content p {
+            color: #aaaab7;
+            margin-bottom: 20px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            padding: 5px 10px;
+            border-radius: 7px;
+
+            background: rgba(124,58,237,0.15);
+            color: #c4b5fd;
+
+            font-size: 0.8rem;
+        }
+
+        /* ---------- About ---------- */
+
+        .about-box {
+            padding: 35px;
+
+            background: rgba(255,255,255,0.035);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 18px;
+
+            max-width: 800px;
+        }
+
+        .about-box p {
+            color: #b3b3c0;
+            margin-bottom: 15px;
+        }
+
+        /* ---------- Contact ---------- */
+
+        .contact {
+            text-align: center;
+        }
+
+        .contact-box {
+            max-width: 700px;
+            margin: auto;
+            padding: 50px 30px;
+
+            border-radius: 22px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(124,58,237,0.15),
+                    rgba(6,182,212,0.10)
+                );
+
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .contact-box h2 {
+            font-size: 2.3rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-box p {
+            color: #aaaab7;
+            margin-bottom: 30px;
+        }
+
+        .contact-details {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .contact-item {
+            padding: 12px 18px;
+            border-radius: 10px;
+
+            background: rgba(0,0,0,0.25);
+            border: 1px solid rgba(255,255,255,0.08);
+
+            color: #dddde8;
+        }
+
+        /* ---------- Footer ---------- */
+
+        footer {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding: 30px 0;
+            text-align: center;
+            color: #777784;
+            font-size: 0.9rem;
+        }
+
+        /* ---------- Mobile ---------- */
+
+        @media (max-width: 700px) {
+
+            nav ul {
+                display: none;
+            }
+
+            .hero {
+                min-height: 80vh;
+            }
+
+            .services,
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 70px 0;
+            }
+
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Loops</h1>
-    <h2>Discord Bot Developer</h2>
 
-    <p>Welcome to my portfolio!</p>
+<!-- Navigation -->
 
-    <h2>My Projects</h2>
+<nav>
+    <div class="nav-container">
 
-    <h3>TwilightSparkle</h3>
-    <p>
-        A feature-rich Discord bot with moderation,
-        economy, leveling, giveaways, logging and more.
-    </p>
+        <div class="logo">
+            Nan<span>TheDu</span>
+        </div>
+
+        <ul>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+    </div>
+</nav>
+
+
+<!-- Hero -->
+
+<section class="hero">
+
+    <div class="container">
+
+        <div class="hero-content">
+
+            <div class="badge">
+                ⚡ Discord Bot & Website Developer
+            </div>
+
+            <h1>
+                Hey, I'm <span class="gradient-text">NanTheDu.</span>
+            </h1>
+
+            <p>
+                I build custom Discord bots and simple, modern websites
+                for communities, creators, and small projects.
+            </p>
+
+            <div class="buttons">
+
+                <a href="#projects" class="button button-primary">
+                    View My Work
+                </a>
+
+                <a href="#contact" class="button button-secondary">
+                    Contact Me
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Services -->
+
+<section id="services">
+
+    <div class="container">
+
+        <h2 class="section-title">What I Do</h2>
+
+        <p class="section-subtitle">
+            Simple, practical development for your project.
+        </p>
+
+        <div class="services">
+
+            <div class="service-card">
+
+                <div class="service-icon">🤖</div>
+
+                <h3>Discord Bot Development</h3>
+
+                <p>
+                    Custom Discord bots with moderation, economy,
+                    leveling, utility commands, automation, and
+                    other features tailored to your server.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">🌐</div>
+
+                <h3>Simple Websites</h3>
+
+                <p>
+                    Clean and responsive websites for communities,
+                    personal projects, small businesses, and other
+                    simple use cases.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Projects -->
+
+<section id="projects">
+
+    <div class="container">
+
+        <h2 class="section-title">Featured Work</h2>
+
+        <p class="section-subtitle">
+            A few examples of projects I've worked on.
+        </p>
+
+        <div class="projects">
+
+
+            <!-- TwilightSparkle -->
+
+            <div class="project-card">
+
+                <div class="project-banner">
+                    🤖
+                </div>
+
+                <div class="project-content">
+
+                    <h3>TwilightSparkle</h3>
+
+                    <p>
+                        A feature-rich Discord community bot featuring
+                        moderation, economy, leveling, giveaways,
+                        logging, community tools, and more.
+                    </p>
+
+                    <div class="tags">
+                        <span class="tag">Discord</span>
+                        <span class="tag">Bot Development</span>
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">Docker</span>
+                    </div>
+
+                    <a
+                        href="#"
+                        class="button button-secondary"
+                    >
+                        View Project
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Future Project -->
+
+            <div class="project-card">
+
+                <div class="project-banner">
+                    🌐
+                </div>
+
+                <div class="project-content">
+
+                    <h3>More Coming Soon</h3>
+
+                    <p>
+                        I'm constantly working on new projects and
+                        expanding my portfolio. More examples will
+                        appear here soon.
+                    </p>
+
+                    <div class="tags">
+                        <span class="tag">Web Development</span>
+                        <span class="tag">Discord</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- About -->
+
+<section id="about">
+
+    <div class="container">
+
+        <h2 class="section-title">About Me</h2>
+
+        <div class="about-box">
+
+            <p>
+                I'm NanTheDu, a developer focused primarily on
+                Discord bots and simple websites.
+            </p>
+
+            <p>
+                I enjoy building useful, custom solutions rather
+                than relying entirely on pre-built systems.
+            </p>
+
+            <p>
+                Projects are developed to fit the client's needs,
+                whether that's a community bot, automation system,
+                or a simple website.
+            </p>
+
+            <p>
+                <strong>Note:</strong> I provide development services,
+                but I do not provide hosting.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Contact -->
+
+<section id="contact" class="contact">
+
+    <div class="container">
+
+        <div class="contact-box">
+
+            <h2>Let's Work Together</h2>
+
+            <p>
+                Have a Discord bot or simple website in mind?
+                Feel free to get in touch.
+            </p>
+
+            <div class="contact-details">
+
+                <div class="contact-item">
+                    💬 Discord: <strong>nanthedu</strong>
+                </div>
+
+                <div class="contact-item">
+                    📧 nanthedu@gmail.com
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Footer -->
+
+<footer>
+
+    <div class="container">
+
+        © 2026 NanTheDu. All rights reserved.
+
+    </div>
+
+</footer>
+
 </body>
 </html>
