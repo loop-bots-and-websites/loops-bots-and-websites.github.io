@@ -22,8 +22,8 @@
 
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background: #0b0b14;
-            color: #f4f4f7;
+            background: #000000;
+            color: #fff7ed;
             line-height: 1.6;
             overflow-x: hidden;
         }
@@ -35,8 +35,8 @@
             position: fixed;
             width: 500px;
             height: 500px;
-            background: #7c3aed;
-            opacity: 0.12;
+            background: #ff8c00;
+            opacity: 0.08;
             filter: blur(140px);
             border-radius: 50%;
             top: -150px;
@@ -49,8 +49,8 @@
             position: fixed;
             width: 450px;
             height: 450px;
-            background: #06b6d4;
-            opacity: 0.10;
+            background: #ffd700;
+            opacity: 0.06;
             filter: blur(140px);
             border-radius: 50%;
             right: -150px;
@@ -65,8 +65,8 @@
             top: 0;
             z-index: 100;
             backdrop-filter: blur(15px);
-            background: rgba(11, 11, 20, 0.75);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(0, 0, 0, 0.85);
+            border-bottom: 1px solid rgba(255, 170, 0, 0.15);
         }
 
         .nav-container {
@@ -82,11 +82,25 @@
         .logo {
             font-size: 1.4rem;
             font-weight: 800;
-            color: white;
+
+            background: linear-gradient(
+                90deg,
+                #ff8c00,
+                #ffb300,
+                #ffd700
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .logo span {
-            color: #a78bfa;
+            background: linear-gradient(
+                90deg,
+                #ffb300,
+                #ffd700
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         nav ul {
@@ -96,13 +110,26 @@
         }
 
         nav a {
-            color: #c7c7d1;
+            background: linear-gradient(
+                90deg,
+                #ffb300,
+                #ffd700
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
             text-decoration: none;
             transition: 0.2s;
         }
 
         nav a:hover {
-            color: #a78bfa;
+            background: linear-gradient(
+                90deg,
+                #ff8c00,
+                #ffd700
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         /* ---------- General ---------- */
@@ -120,11 +147,27 @@
         .section-title {
             font-size: 2.3rem;
             margin-bottom: 12px;
+
+            background: linear-gradient(
+                90deg,
+                #ff8c00,
+                #ffb300,
+                #ffd700
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .section-subtitle {
-            color: #a5a5b2;
             margin-bottom: 45px;
+
+            background: linear-gradient(
+                90deg,
+                #ffb300,
+                #ffd700
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         /* ---------- Hero ---------- */
@@ -145,10 +188,18 @@
             padding: 8px 15px;
             border-radius: 999px;
 
-            background: rgba(124, 58, 237, 0.15);
-            border: 1px solid rgba(167, 139, 250, 0.3);
+            background: rgba(255, 140, 0, 0.10);
+            border: 1px solid rgba(255, 179, 0, 0.3);
 
-            color: #c4b5fd;
+            background-image: linear-gradient(
+                90deg,
+                #ff8c00,
+                #ffb300,
+                #ffd700
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
             font-size: 0.9rem;
             margin-bottom: 20px;
         }
@@ -157,25 +208,41 @@
             font-size: clamp(3rem, 8vw, 6rem);
             line-height: 1;
             margin-bottom: 25px;
+
+            background: linear-gradient(
+                90deg,
+                #ff8c00,
+                #ffb300,
+                #ffd700
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-    .gradient-text {
-        background: linear-gradient(
-            90deg,
-            #fbbf24,
-            #fb7185,
-            #f97316
-        );
+        .gradient-text {
+            background: linear-gradient(
+                90deg,
+                #ff8c00,
+                #ffb300,
+                #ffd700
+            );
 
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-         }
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
         .hero p {
             font-size: 1.2rem;
-            color: #b7b7c3;
             max-width: 650px;
             margin-bottom: 35px;
+
+            background: linear-gradient(
+                90deg,
+                #ffb300,
+                #ffd700
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .buttons {
@@ -196,23 +263,35 @@
         }
 
         .button-primary {
-            background: linear-gradient(90deg, #7c3aed, #06b6d4);
-            color: white;
+            background: linear-gradient(
+                90deg,
+                #ff8c00,
+                #ffb300,
+                #ffd700
+            );
+            color: #000000;
         }
 
         .button-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(124, 58, 237, 0.3);
+            box-shadow: 0 10px 30px rgba(255, 165, 0, 0.3);
         }
 
         .button-secondary {
-            border: 1px solid #333344;
-            color: #dddde8;
-            background: rgba(255,255,255,0.03);
+            border: 1px solid #4a3500;
+            background: rgba(255, 255, 255, 0.02);
+
+            background-image: linear-gradient(
+                90deg,
+                #ffb300,
+                #ffd700
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .button-secondary:hover {
-            border-color: #7c3aed;
+            border-color: #ffb300;
             transform: translateY(-3px);
         }
 
@@ -227,8 +306,8 @@
         .service-card {
             padding: 30px;
 
-            background: rgba(255,255,255,0.035);
-            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255, 255, 255, 0.025);
+            border: 1px solid rgba(255, 179, 0, 0.12);
             border-radius: 18px;
 
             transition: 0.25s;
@@ -236,8 +315,8 @@
 
         .service-card:hover {
             transform: translateY(-6px);
-            border-color: rgba(167,139,250,0.5);
-            background: rgba(255,255,255,0.055);
+            border-color: rgba(255, 179, 0, 0.5);
+            background: rgba(255, 179, 0, 0.035);
         }
 
         .service-icon {
@@ -248,10 +327,25 @@
         .service-card h3 {
             font-size: 1.4rem;
             margin-bottom: 10px;
+
+            background: linear-gradient(
+                90deg,
+                #ff8c00,
+                #ffb300,
+                #ffd700
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .service-card p {
-            color: #a9a9b5;
+            background: linear-gradient(
+                90deg,
+                #ffb300,
+                #ffd700
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         /* ---------- Projects ---------- */
@@ -263,8 +357,8 @@
         }
 
         .project-card {
-            background: #11111d;
-            border: 1px solid rgba(255,255,255,0.08);
+            background: #050505;
+            border: 1px solid rgba(255, 179, 0, 0.12);
             border-radius: 18px;
             overflow: hidden;
 
@@ -273,7 +367,7 @@
 
         .project-card:hover {
             transform: translateY(-7px);
-            border-color: rgba(34,211,238,0.4);
+            border-color: rgba(255, 179, 0, 0.4);
         }
 
         .project-banner {
@@ -288,8 +382,8 @@
             background:
                 linear-gradient(
                     135deg,
-                    rgba(124,58,237,0.35),
-                    rgba(6,182,212,0.25)
+                    rgba(255, 140, 0, 0.25),
+                    rgba(255, 215, 0, 0.18)
                 );
         }
 
@@ -300,11 +394,27 @@
         .project-content h3 {
             font-size: 1.5rem;
             margin-bottom: 10px;
+
+            background: linear-gradient(
+                90deg,
+                #ff8c00,
+                #ffb300,
+                #ffd700
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .project-content p {
-            color: #aaaab7;
             margin-bottom: 20px;
+
+            background: linear-gradient(
+                90deg,
+                #ffb300,
+                #ffd700
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .tags {
@@ -318,8 +428,15 @@
             padding: 5px 10px;
             border-radius: 7px;
 
-            background: rgba(124,58,237,0.15);
-            color: #c4b5fd;
+            background: rgba(255, 179, 0, 0.10);
+
+            background-image: linear-gradient(
+                90deg,
+                #ffb300,
+                #ffd700
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
 
             font-size: 0.8rem;
         }
@@ -329,16 +446,23 @@
         .about-box {
             padding: 35px;
 
-            background: rgba(255,255,255,0.035);
-            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255, 255, 255, 0.025);
+            border: 1px solid rgba(255, 179, 0, 0.12);
             border-radius: 18px;
 
             max-width: 800px;
         }
 
         .about-box p {
-            color: #b3b3c0;
             margin-bottom: 15px;
+
+            background: linear-gradient(
+                90deg,
+                #ffb300,
+                #ffd700
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         /* ---------- Contact ---------- */
@@ -357,21 +481,37 @@
             background:
                 linear-gradient(
                     135deg,
-                    rgba(124,58,237,0.15),
-                    rgba(6,182,212,0.10)
+                    rgba(255, 140, 0, 0.10),
+                    rgba(255, 215, 0, 0.06)
                 );
 
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(255, 179, 0, 0.15);
         }
 
         .contact-box h2 {
             font-size: 2.3rem;
             margin-bottom: 15px;
+
+            background: linear-gradient(
+                90deg,
+                #ff8c00,
+                #ffb300,
+                #ffd700
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .contact-box p {
-            color: #aaaab7;
             margin-bottom: 30px;
+
+            background: linear-gradient(
+                90deg,
+                #ffb300,
+                #ffd700
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .contact-details {
@@ -385,19 +525,34 @@
             padding: 12px 18px;
             border-radius: 10px;
 
-            background: rgba(0,0,0,0.25);
-            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 179, 0, 0.12);
 
-            color: #dddde8;
+            background-image: linear-gradient(
+                90deg,
+                #ffb300,
+                #ffd700
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         /* ---------- Footer ---------- */
 
         footer {
-            border-top: 1px solid rgba(255,255,255,0.08);
+            border-top: 1px solid rgba(255, 179, 0, 0.12);
             padding: 30px 0;
             text-align: center;
-            color: #777784;
+
+            background-image: linear-gradient(
+                90deg,
+                #ff8c00,
+                #ffb300,
+                #ffd700
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
             font-size: 0.9rem;
         }
 
@@ -460,7 +615,7 @@
         <div class="hero-content">
 
             <div class="badge">
-                ⚡ Discord Bot & Website Developer
+                Discord Bot & Website Developer
             </div>
 
             <h1>
@@ -507,7 +662,7 @@
 
             <div class="service-card">
 
-                <div class="service-icon">🤖</div>
+                <div class="service-icon"></div>
 
                 <h3>Discord Bot Development</h3>
 
@@ -522,7 +677,7 @@
 
             <div class="service-card">
 
-                <div class="service-icon">🌐</div>
+                <div class="service-icon"></div>
 
                 <h3>Simple Websites</h3>
 
@@ -561,7 +716,7 @@
             <div class="project-card">
 
                 <div class="project-banner">
-                    🤖
+                    
                 </div>
 
                 <div class="project-content">
@@ -598,7 +753,7 @@
             <div class="project-card">
 
                 <div class="project-banner">
-                    🌐
+                    
                 </div>
 
                 <div class="project-content">
@@ -682,11 +837,11 @@
             <div class="contact-details">
 
                 <div class="contact-item">
-                    💬 Discord: <strong>nanthedu</strong>
+                    Discord: <strong>nanthedu</strong>
                 </div>
 
                 <div class="contact-item">
-                    📧 nanthedu@gmail.com
+                    nanthedu@gmail.com
                 </div>
 
             </div>
