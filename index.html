@@ -23,7 +23,7 @@
         body {
             font-family: Arial, Helvetica, sans-serif;
             background: #000000;
-            color: #fff7ed;
+            color: #fff7e6;
             line-height: 1.6;
             overflow-x: hidden;
         }
@@ -36,7 +36,7 @@
             width: 500px;
             height: 500px;
             background: #ff8c00;
-            opacity: 0.08;
+            opacity: 0.10;
             filter: blur(140px);
             border-radius: 50%;
             top: -150px;
@@ -49,8 +49,8 @@
             position: fixed;
             width: 450px;
             height: 450px;
-            background: #ffd700;
-            opacity: 0.06;
+            background: #ffd000;
+            opacity: 0.08;
             filter: blur(140px);
             border-radius: 50%;
             right: -150px;
@@ -65,8 +65,8 @@
             top: 0;
             z-index: 100;
             backdrop-filter: blur(15px);
-            background: rgba(0, 0, 0, 0.85);
-            border-bottom: 1px solid rgba(255, 170, 0, 0.15);
+            background: rgba(0, 0, 0, 0.80);
+            border-bottom: 1px solid rgba(255, 170, 0, 0.18);
         }
 
         .nav-container {
@@ -82,25 +82,11 @@
         .logo {
             font-size: 1.4rem;
             font-weight: 800;
-
-            background: linear-gradient(
-                90deg,
-                #ff8c00,
-                #ffb300,
-                #ffd700
-            );
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #ff9d00;
         }
 
         .logo span {
-            background: linear-gradient(
-                90deg,
-                #ffb300,
-                #ffd700
-            );
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #ffd000;
         }
 
         nav ul {
@@ -110,26 +96,13 @@
         }
 
         nav a {
-            background: linear-gradient(
-                90deg,
-                #ffb300,
-                #ffd700
-            );
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-
+            color: #ffd84d;
             text-decoration: none;
             transition: 0.2s;
         }
 
         nav a:hover {
-            background: linear-gradient(
-                90deg,
-                #ff8c00,
-                #ffd700
-            );
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #ff8c00;
         }
 
         /* ---------- General ---------- */
@@ -147,27 +120,12 @@
         .section-title {
             font-size: 2.3rem;
             margin-bottom: 12px;
-
-            background: linear-gradient(
-                90deg,
-                #ff8c00,
-                #ffb300,
-                #ffd700
-            );
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #ffb000;
         }
 
         .section-subtitle {
+            color: #e6c96a;
             margin-bottom: 45px;
-
-            background: linear-gradient(
-                90deg,
-                #ffb300,
-                #ffd700
-            );
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
         }
 
         /* ---------- Hero ---------- */
@@ -188,18 +146,10 @@
             padding: 8px 15px;
             border-radius: 999px;
 
-            background: rgba(255, 140, 0, 0.10);
-            border: 1px solid rgba(255, 179, 0, 0.3);
+            background: rgba(255, 140, 0, 0.08);
+            border: 1px solid rgba(255, 190, 0, 0.4);
 
-            background-image: linear-gradient(
-                90deg,
-                #ff8c00,
-                #ffb300,
-                #ffd700
-            );
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-
+            color: #ffc933;
             font-size: 0.9rem;
             margin-bottom: 20px;
         }
@@ -208,23 +158,15 @@
             font-size: clamp(3rem, 8vw, 6rem);
             line-height: 1;
             margin-bottom: 25px;
-
-            background: linear-gradient(
-                90deg,
-                #ff8c00,
-                #ffb300,
-                #ffd700
-            );
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #ff9d00;
         }
 
         .gradient-text {
             background: linear-gradient(
                 90deg,
-                #ff8c00,
-                #ffb300,
-                #ffd700
+                #ff7a00,
+                #ffae00,
+                #ffe600
             );
 
             -webkit-background-clip: text;
@@ -233,16 +175,9 @@
 
         .hero p {
             font-size: 1.2rem;
+            color: #ffd84d;
             max-width: 650px;
             margin-bottom: 35px;
-
-            background: linear-gradient(
-                90deg,
-                #ffb300,
-                #ffd700
-            );
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
         }
 
         .buttons {
@@ -266,32 +201,26 @@
             background: linear-gradient(
                 90deg,
                 #ff8c00,
-                #ffb300,
-                #ffd700
+                #ffd000
             );
+
             color: #000000;
         }
 
         .button-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(255, 165, 0, 0.3);
+            box-shadow: 0 10px 30px rgba(255, 170, 0, 0.3);
         }
 
         .button-secondary {
-            border: 1px solid #4a3500;
-            background: rgba(255, 255, 255, 0.02);
-
-            background-image: linear-gradient(
-                90deg,
-                #ffb300,
-                #ffd700
-            );
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            border: 1px solid #5c4500;
+            color: #ffd84d;
+            background: rgba(255, 170, 0, 0.03);
         }
 
         .button-secondary:hover {
-            border-color: #ffb300;
+            border-color: #ffae00;
+            color: #ffae00;
             transform: translateY(-3px);
         }
 
@@ -306,8 +235,8 @@
         .service-card {
             padding: 30px;
 
-            background: rgba(255, 255, 255, 0.025);
-            border: 1px solid rgba(255, 179, 0, 0.12);
+            background: rgba(255, 170, 0, 0.025);
+            border: 1px solid rgba(255, 190, 0, 0.15);
             border-radius: 18px;
 
             transition: 0.25s;
@@ -315,8 +244,8 @@
 
         .service-card:hover {
             transform: translateY(-6px);
-            border-color: rgba(255, 179, 0, 0.5);
-            background: rgba(255, 179, 0, 0.035);
+            border-color: rgba(255, 174, 0, 0.5);
+            background: rgba(255, 170, 0, 0.045);
         }
 
         .service-icon {
@@ -327,25 +256,11 @@
         .service-card h3 {
             font-size: 1.4rem;
             margin-bottom: 10px;
-
-            background: linear-gradient(
-                90deg,
-                #ff8c00,
-                #ffb300,
-                #ffd700
-            );
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #ffb000;
         }
 
         .service-card p {
-            background: linear-gradient(
-                90deg,
-                #ffb300,
-                #ffd700
-            );
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #e2c766;
         }
 
         /* ---------- Projects ---------- */
@@ -357,8 +272,8 @@
         }
 
         .project-card {
-            background: #050505;
-            border: 1px solid rgba(255, 179, 0, 0.12);
+            background: #080808;
+            border: 1px solid rgba(255, 190, 0, 0.15);
             border-radius: 18px;
             overflow: hidden;
 
@@ -367,7 +282,7 @@
 
         .project-card:hover {
             transform: translateY(-7px);
-            border-color: rgba(255, 179, 0, 0.4);
+            border-color: rgba(255, 190, 0, 0.5);
         }
 
         .project-banner {
@@ -382,8 +297,8 @@
             background:
                 linear-gradient(
                     135deg,
-                    rgba(255, 140, 0, 0.25),
-                    rgba(255, 215, 0, 0.18)
+                    rgba(255, 120, 0, 0.30),
+                    rgba(255, 210, 0, 0.20)
                 );
         }
 
@@ -394,27 +309,12 @@
         .project-content h3 {
             font-size: 1.5rem;
             margin-bottom: 10px;
-
-            background: linear-gradient(
-                90deg,
-                #ff8c00,
-                #ffb300,
-                #ffd700
-            );
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #ffb000;
         }
 
         .project-content p {
+            color: #e0c566;
             margin-bottom: 20px;
-
-            background: linear-gradient(
-                90deg,
-                #ffb300,
-                #ffd700
-            );
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
         }
 
         .tags {
@@ -428,15 +328,8 @@
             padding: 5px 10px;
             border-radius: 7px;
 
-            background: rgba(255, 179, 0, 0.10);
-
-            background-image: linear-gradient(
-                90deg,
-                #ffb300,
-                #ffd700
-            );
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            background: rgba(255, 170, 0, 0.10);
+            color: #ffd84d;
 
             font-size: 0.8rem;
         }
@@ -446,23 +339,16 @@
         .about-box {
             padding: 35px;
 
-            background: rgba(255, 255, 255, 0.025);
-            border: 1px solid rgba(255, 179, 0, 0.12);
+            background: rgba(255, 170, 0, 0.025);
+            border: 1px solid rgba(255, 190, 0, 0.15);
             border-radius: 18px;
 
             max-width: 800px;
         }
 
         .about-box p {
+            color: #e2c766;
             margin-bottom: 15px;
-
-            background: linear-gradient(
-                90deg,
-                #ffb300,
-                #ffd700
-            );
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
         }
 
         /* ---------- Contact ---------- */
@@ -481,37 +367,22 @@
             background:
                 linear-gradient(
                     135deg,
-                    rgba(255, 140, 0, 0.10),
-                    rgba(255, 215, 0, 0.06)
+                    rgba(255, 120, 0, 0.10),
+                    rgba(255, 210, 0, 0.07)
                 );
 
-            border: 1px solid rgba(255, 179, 0, 0.15);
+            border: 1px solid rgba(255, 190, 0, 0.18);
         }
 
         .contact-box h2 {
             font-size: 2.3rem;
             margin-bottom: 15px;
-
-            background: linear-gradient(
-                90deg,
-                #ff8c00,
-                #ffb300,
-                #ffd700
-            );
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #ffb000;
         }
 
         .contact-box p {
+            color: #e0c566;
             margin-bottom: 30px;
-
-            background: linear-gradient(
-                90deg,
-                #ffb300,
-                #ffd700
-            );
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
         }
 
         .contact-details {
@@ -525,34 +396,19 @@
             padding: 12px 18px;
             border-radius: 10px;
 
-            background: rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255, 179, 0, 0.12);
+            background: rgba(0, 0, 0, 0.45);
+            border: 1px solid rgba(255, 190, 0, 0.15);
 
-            background-image: linear-gradient(
-                90deg,
-                #ffb300,
-                #ffd700
-            );
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #ffd84d;
         }
 
         /* ---------- Footer ---------- */
 
         footer {
-            border-top: 1px solid rgba(255, 179, 0, 0.12);
+            border-top: 1px solid rgba(255, 190, 0, 0.15);
             padding: 30px 0;
             text-align: center;
-
-            background-image: linear-gradient(
-                90deg,
-                #ff8c00,
-                #ffb300,
-                #ffd700
-            );
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-
+            color: #a98d35;
             font-size: 0.9rem;
         }
 
@@ -600,6 +456,11 @@
             <li><a href="#projects">Projects</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
+            <li>
+                <a href="https://github.com/loop-bots-and-websites?tab=repositories" target="_blank">
+                    GitHub
+                </a>
+            </li>
         </ul>
 
     </div>
@@ -715,9 +576,7 @@
 
             <div class="project-card">
 
-                <div class="project-banner">
-                    
-                </div>
+                <div class="project-banner"></div>
 
                 <div class="project-content">
 
@@ -737,7 +596,8 @@
                     </div>
 
                     <a
-                        href="#"
+                        href="https://github.com/loop-bots-and-websites/TwilightSparkle-"
+                        target="_blank"
                         class="button button-secondary"
                     >
                         View Project
@@ -752,9 +612,7 @@
 
             <div class="project-card">
 
-                <div class="project-banner">
-                    
-                </div>
+                <div class="project-banner"></div>
 
                 <div class="project-content">
 
