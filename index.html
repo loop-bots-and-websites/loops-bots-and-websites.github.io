@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>ECHOTYPE | Discord Bot & Website Developer</title>
+    <title>NANTHEDU | Discord Bot & Website Developer</title>
 
     <meta name="description"
-          content="ECHOTYPE - Discord bot developer and simple website developer.">
+          content="NANTHEDU - Discord bot developer and simple website developer.">
 
     <style>
         * {
@@ -22,8 +22,8 @@
 
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background: #000000;
-            color: #fff7e6;
+            background: #000;
+            color: #fff;
             line-height: 1.6;
             overflow-x: hidden;
         }
@@ -33,29 +33,45 @@
         body::before {
             content: "";
             position: fixed;
-            width: 500px;
-            height: 500px;
-            background: #ff8c00;
-            opacity: 0.10;
-            filter: blur(140px);
+            width: 650px;
+            height: 650px;
+            background: #ff7a00;
+            opacity: 0.14;
+            filter: blur(150px);
             border-radius: 50%;
-            top: -150px;
-            left: -150px;
-            z-index: -1;
+            top: -250px;
+            left: -220px;
+            z-index: -2;
+            pointer-events: none;
         }
 
         body::after {
             content: "";
             position: fixed;
+            width: 600px;
+            height: 600px;
+            background: #ffd000;
+            opacity: 0.10;
+            filter: blur(160px);
+            border-radius: 50%;
+            right: -260px;
+            bottom: -220px;
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        .background-glow {
+            position: fixed;
             width: 450px;
             height: 450px;
-            background: #ffd000;
-            opacity: 0.08;
+            background: #ffb000;
+            opacity: 0.045;
             filter: blur(140px);
             border-radius: 50%;
-            right: -150px;
-            bottom: -100px;
-            z-index: -1;
+            top: 45%;
+            left: 40%;
+            z-index: -2;
+            pointer-events: none;
         }
 
         /* ---------- Navigation ---------- */
@@ -64,15 +80,16 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            backdrop-filter: blur(15px);
-            background: rgba(0, 0, 0, 0.80);
-            border-bottom: 1px solid rgba(255, 170, 0, 0.18);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            background: rgba(0, 0, 0, 0.72);
+            border-bottom: 1px solid rgba(255, 174, 0, 0.15);
         }
 
         .nav-container {
-            max-width: 1100px;
+            max-width: 1150px;
             margin: auto;
-            padding: 18px 25px;
+            padding: 17px 25px;
 
             display: flex;
             justify-content: space-between;
@@ -80,148 +97,207 @@
         }
 
         .logo {
-            font-size: 1.4rem;
-            font-weight: 800;
+            font-size: 1.35rem;
+            font-weight: 900;
+            letter-spacing: 0.5px;
             color: #ff9d00;
         }
 
         .logo span {
-            color: #ffd000;
+            color: #ffe000;
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 25px;
+            gap: 27px;
         }
 
         nav a {
-            color: #ffd84d;
+            color: #e9e9e9;
             text-decoration: none;
-            transition: 0.2s;
+            font-size: 0.94rem;
+            transition: 0.25s;
         }
 
         nav a:hover {
-            color: #ff8c00;
+            color: #ffb000;
         }
 
         /* ---------- General ---------- */
 
         .container {
-            max-width: 1100px;
+            max-width: 1150px;
             margin: auto;
             padding: 0 25px;
         }
 
         section {
-            padding: 100px 0;
+            padding: 105px 0;
+            position: relative;
         }
 
         .section-title {
-            font-size: 2.3rem;
-            margin-bottom: 12px;
-            color: #ffb000;
+            font-size: clamp(2rem, 4vw, 2.7rem);
+            margin-bottom: 10px;
+            color: #fff;
+            letter-spacing: -1px;
+        }
+
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 55px;
+            height: 4px;
+            margin-top: 12px;
+            border-radius: 99px;
+            background: linear-gradient(90deg, #ff7a00, #ffe000);
         }
 
         .section-subtitle {
-            color: #e6c96a;
+            color: #aaa;
             margin-bottom: 45px;
+            margin-top: 15px;
         }
 
         /* ---------- Hero ---------- */
 
         .hero {
-            min-height: 90vh;
-
+            min-height: 91vh;
             display: flex;
             align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 700px;
+            height: 700px;
+            right: -280px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: radial-gradient(
+                circle,
+                rgba(255, 174, 0, 0.16) 0%,
+                rgba(255, 120, 0, 0.07) 35%,
+                transparent 70%
+            );
+            pointer-events: none;
         }
 
         .hero-content {
-            max-width: 800px;
+            max-width: 850px;
+            position: relative;
+            z-index: 2;
         }
 
         .badge {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
             padding: 8px 15px;
             border-radius: 999px;
 
-            background: rgba(255, 140, 0, 0.08);
-            border: 1px solid rgba(255, 190, 0, 0.4);
+            background: rgba(255, 150, 0, 0.08);
+            border: 1px solid rgba(255, 190, 0, 0.35);
 
             color: #ffc933;
-            font-size: 0.9rem;
-            margin-bottom: 20px;
+            font-size: 0.88rem;
+            margin-bottom: 22px;
+            box-shadow: 0 0 30px rgba(255, 150, 0, 0.07);
+        }
+
+        .badge::before {
+            content: "";
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #ffae00;
+            box-shadow: 0 0 12px #ffae00;
         }
 
         .hero h1 {
-            font-size: clamp(3rem, 8vw, 6rem);
-            line-height: 1;
-            margin-bottom: 25px;
-            color: #ff9d00;
+            font-size: clamp(3.5rem, 10vw, 7.4rem);
+            line-height: 0.95;
+            margin-bottom: 28px;
+            color: #fff;
+            letter-spacing: -5px;
         }
 
         .gradient-text {
             background: linear-gradient(
                 90deg,
-                #ff7a00,
-                #ffae00,
-                #ffe600
+                #ff7200,
+                #ff9d00,
+                #ffd000,
+                #fff06a
             );
-
+            background-size: 200% auto;
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
+            animation: gradientMove 5s linear infinite;
+            filter: drop-shadow(0 0 25px rgba(255, 160, 0, 0.16));
+        }
+
+        @keyframes gradientMove {
+            to {
+                background-position: 200% center;
+            }
         }
 
         .hero p {
-            font-size: 1.2rem;
-            color: #ffd84d;
-            max-width: 650px;
-            margin-bottom: 35px;
+            font-size: 1.17rem;
+            color: #bdbdbd;
+            max-width: 680px;
+            margin-bottom: 36px;
+        }
+
+        .hero p strong {
+            color: #fff;
         }
 
         .buttons {
             display: flex;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 14px;
         }
 
         .button {
             display: inline-block;
             padding: 13px 22px;
-            border-radius: 10px;
+            border-radius: 11px;
 
             text-decoration: none;
-            font-weight: 700;
+            font-weight: 750;
 
-            transition: 0.25s;
+            transition: 0.25s ease;
         }
 
         .button-primary {
-            background: linear-gradient(
-                90deg,
-                #ff8c00,
-                #ffd000
-            );
-
-            color: #000000;
+            background: linear-gradient(90deg, #ff7900, #ffc400);
+            color: #000;
+            box-shadow: 0 8px 30px rgba(255, 145, 0, 0.16);
         }
 
         .button-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(255, 170, 0, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 14px 38px rgba(255, 170, 0, 0.28);
         }
 
         .button-secondary {
-            border: 1px solid #5c4500;
-            color: #ffd84d;
-            background: rgba(255, 170, 0, 0.03);
+            border: 1px solid rgba(255, 190, 0, 0.28);
+            color: #eee;
+            background: rgba(255, 170, 0, 0.035);
         }
 
         .button-secondary:hover {
             border-color: #ffae00;
-            color: #ffae00;
-            transform: translateY(-3px);
+            color: #ffc400;
+            background: rgba(255, 170, 0, 0.07);
+            transform: translateY(-4px);
         }
 
         /* ---------- Services ---------- */
@@ -233,34 +309,52 @@
         }
 
         .service-card {
-            padding: 30px;
+            position: relative;
+            padding: 34px;
+            background:
+                linear-gradient(145deg, rgba(255, 170, 0, 0.055), rgba(255, 255, 255, 0.015));
+            border: 1px solid rgba(255, 190, 0, 0.14);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: 0.3s ease;
+        }
 
-            background: rgba(255, 170, 0, 0.025);
-            border: 1px solid rgba(255, 190, 0, 0.15);
-            border-radius: 18px;
-
-            transition: 0.25s;
+        .service-card::before {
+            content: "";
+            position: absolute;
+            width: 170px;
+            height: 170px;
+            top: -100px;
+            right: -80px;
+            background: #ffae00;
+            opacity: 0.07;
+            filter: blur(60px);
+            border-radius: 50%;
         }
 
         .service-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(255, 174, 0, 0.5);
-            background: rgba(255, 170, 0, 0.045);
+            transform: translateY(-7px);
+            border-color: rgba(255, 174, 0, 0.45);
+            box-shadow: 0 18px 55px rgba(255, 150, 0, 0.08);
         }
 
         .service-icon {
-            font-size: 2rem;
-            margin-bottom: 15px;
+            width: 48px;
+            height: 48px;
+            border-radius: 13px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ff7900, #ffd000);
+            box-shadow: 0 8px 25px rgba(255, 150, 0, 0.18);
         }
 
         .service-card h3 {
             font-size: 1.4rem;
             margin-bottom: 10px;
-            color: #ffb000;
+            color: #fff;
         }
 
         .service-card p {
-            color: #e2c766;
+            color: #a9a9a9;
         }
 
         /* ---------- Projects ---------- */
@@ -272,48 +366,69 @@
         }
 
         .project-card {
-            background: #080808;
-            border: 1px solid rgba(255, 190, 0, 0.15);
-            border-radius: 18px;
+            background: rgba(8, 8, 8, 0.9);
+            border: 1px solid rgba(255, 190, 0, 0.13);
+            border-radius: 20px;
             overflow: hidden;
-
-            transition: 0.3s;
+            transition: 0.3s ease;
         }
 
         .project-card:hover {
-            transform: translateY(-7px);
-            border-color: rgba(255, 190, 0, 0.5);
+            transform: translateY(-8px);
+            border-color: rgba(255, 190, 0, 0.45);
+            box-shadow: 0 20px 60px rgba(255, 150, 0, 0.08);
         }
 
         .project-banner {
-            height: 160px;
-
+            height: 165px;
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-
-            font-size: 3.5rem;
+            overflow: hidden;
 
             background:
-                linear-gradient(
-                    135deg,
-                    rgba(255, 120, 0, 0.30),
-                    rgba(255, 210, 0, 0.20)
-                );
+                radial-gradient(circle at 25% 35%, rgba(255, 190, 0, 0.32), transparent 25%),
+                radial-gradient(circle at 75% 65%, rgba(255, 100, 0, 0.28), transparent 28%),
+                linear-gradient(135deg, #17100a, #080808);
+        }
+
+        .project-banner::before {
+            content: "";
+            position: absolute;
+            width: 240px;
+            height: 240px;
+            border: 1px solid rgba(255, 190, 0, 0.18);
+            border-radius: 50%;
+            box-shadow:
+                0 0 0 35px rgba(255, 170, 0, 0.035),
+                0 0 0 70px rgba(255, 170, 0, 0.025);
+        }
+
+        .project-banner::after {
+            content: "";
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 22px;
+            background: linear-gradient(135deg, #ff7900, #ffd000);
+            transform: rotate(45deg);
+            opacity: 0.9;
+            box-shadow: 0 0 45px rgba(255, 170, 0, 0.25);
         }
 
         .project-content {
-            padding: 28px;
+            padding: 29px;
         }
 
         .project-content h3 {
             font-size: 1.5rem;
             margin-bottom: 10px;
-            color: #ffb000;
+            color: #fff;
         }
 
         .project-content p {
-            color: #e0c566;
+            color: #a9a9a9;
             margin-bottom: 20px;
         }
 
@@ -321,34 +436,56 @@
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            margin-bottom: 20px;
+            margin-bottom: 21px;
         }
 
         .tag {
             padding: 5px 10px;
             border-radius: 7px;
-
-            background: rgba(255, 170, 0, 0.10);
-            color: #ffd84d;
-
+            background: rgba(255, 170, 0, 0.075);
+            border: 1px solid rgba(255, 170, 0, 0.08);
+            color: #d8b94b;
             font-size: 0.8rem;
         }
 
         /* ---------- About ---------- */
 
         .about-box {
-            padding: 35px;
+            position: relative;
+            padding: 38px;
+            background:
+                linear-gradient(145deg, rgba(255, 170, 0, 0.055), rgba(255, 255, 255, 0.012));
+            border: 1px solid rgba(255, 190, 0, 0.14);
+            border-radius: 20px;
+            max-width: 850px;
+            overflow: hidden;
+        }
 
-            background: rgba(255, 170, 0, 0.025);
-            border: 1px solid rgba(255, 190, 0, 0.15);
-            border-radius: 18px;
-
-            max-width: 800px;
+        .about-box::before {
+            content: "";
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            background: #ff8c00;
+            opacity: 0.055;
+            filter: blur(90px);
+            border-radius: 50%;
+            right: -100px;
+            top: -100px;
         }
 
         .about-box p {
-            color: #e2c766;
-            margin-bottom: 15px;
+            color: #aaa;
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        .about-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .about-box strong {
+            color: #ffc400;
         }
 
         /* ---------- Contact ---------- */
@@ -358,70 +495,81 @@
         }
 
         .contact-box {
-            max-width: 700px;
+            max-width: 760px;
             margin: auto;
-            padding: 50px 30px;
-
-            border-radius: 22px;
+            padding: 60px 30px;
+            border-radius: 24px;
+            position: relative;
+            overflow: hidden;
 
             background:
-                linear-gradient(
-                    135deg,
-                    rgba(255, 120, 0, 0.10),
-                    rgba(255, 210, 0, 0.07)
-                );
+                radial-gradient(circle at 50% 0%, rgba(255, 190, 0, 0.16), transparent 48%),
+                linear-gradient(145deg, rgba(255, 120, 0, 0.08), rgba(255, 210, 0, 0.035));
 
-            border: 1px solid rgba(255, 190, 0, 0.18);
+            border: 1px solid rgba(255, 190, 0, 0.2);
+            box-shadow: 0 25px 80px rgba(255, 150, 0, 0.06);
         }
 
         .contact-box h2 {
-            font-size: 2.3rem;
-            margin-bottom: 15px;
-            color: #ffb000;
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            margin-bottom: 14px;
+            color: #fff;
         }
 
         .contact-box p {
-            color: #e0c566;
-            margin-bottom: 30px;
+            color: #aaa;
+            margin-bottom: 32px;
         }
 
         .contact-details {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 12px;
         }
 
         .contact-item {
             padding: 12px 18px;
             border-radius: 10px;
 
-            background: rgba(0, 0, 0, 0.45);
-            border: 1px solid rgba(255, 190, 0, 0.15);
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 190, 0, 0.14);
 
-            color: #ffd84d;
+            color: #ccc;
+        }
+
+        .contact-item strong {
+            color: #ffc400;
         }
 
         /* ---------- Footer ---------- */
 
         footer {
-            border-top: 1px solid rgba(255, 190, 0, 0.15);
+            border-top: 1px solid rgba(255, 190, 0, 0.12);
             padding: 30px 0;
             text-align: center;
-            color: #a98d35;
+            color: #666;
             font-size: 0.9rem;
         }
 
         /* ---------- Mobile ---------- */
 
         @media (max-width: 700px) {
-
             nav ul {
                 display: none;
             }
 
             .hero {
-                min-height: 80vh;
+                min-height: 82vh;
+            }
+
+            .hero h1 {
+                font-size: 3.6rem;
+                letter-spacing: -3px;
+            }
+
+            .hero p {
+                font-size: 1.05rem;
             }
 
             .services,
@@ -430,11 +578,17 @@
             }
 
             section {
-                padding: 70px 0;
+                padding: 75px 0;
             }
 
-            .hero h1 {
-                font-size: 3.5rem;
+            .service-card,
+            .project-content,
+            .about-box {
+                padding: 27px;
+            }
+
+            .project-banner {
+                height: 145px;
             }
         }
     </style>
@@ -442,13 +596,15 @@
 
 <body>
 
+<div class="background-glow"></div>
+
 <!-- Navigation -->
 
 <nav>
     <div class="nav-container">
 
         <div class="logo">
-            ECHO<span>TYPE</span>
+            NANTHEDU
         </div>
 
         <ul>
@@ -459,7 +615,8 @@
 
             <li>
                 <a href="https://github.com/loop-bots-and-websites?tab=repositories"
-                   target="_blank">
+                   target="_blank"
+                   rel="noopener noreferrer">
                     GitHub
                 </a>
             </li>
@@ -482,12 +639,13 @@
             </div>
 
             <h1>
-                Hey, I'm <span class="gradient-text">ECHOTYPE.</span>
+                Hey, I'm <span class="gradient-text">NANTHEDU.</span>
             </h1>
 
             <p>
-                I build custom Discord bots and simple, modern websites
-                for communities, creators, and small projects.
+                I build <strong>custom Discord bots</strong> and
+                <strong>simple, modern websites</strong> for communities,
+                creators, and small projects.
             </p>
 
             <div class="buttons">
@@ -573,7 +731,6 @@
 
         <div class="projects">
 
-
             <!-- TwilightSparkle -->
 
             <div class="project-card">
@@ -600,8 +757,8 @@
                     <a
                         href="https://github.com/loop-bots-and-websites/TwilightSparkle-"
                         target="_blank"
-                        class="button button-secondary"
-                    >
+                        rel="noopener noreferrer"
+                        class="button button-secondary">
                         View Project
                     </a>
 
@@ -636,8 +793,8 @@
                     <a
                         href="https://github.com/loop-bots-and-websites/server-management-bot"
                         target="_blank"
-                        class="button button-secondary"
-                    >
+                        rel="noopener noreferrer"
+                        class="button button-secondary">
                         View Project
                     </a>
 
@@ -668,8 +825,8 @@
                     <a
                         href="https://github.com/loop-bots-and-websites/Cat-Gen"
                         target="_blank"
-                        class="button button-secondary"
-                    >
+                        rel="noopener noreferrer"
+                        class="button button-secondary">
                         View Project
                     </a>
 
@@ -721,12 +878,12 @@
         <div class="about-box">
 
             <p>
-                I'm ECHOTYPE, a freelancer and developer.
+                I'm nanthedu, a freelancer and developer.
                 I've practised for a while now and am just starting out freelancing.
             </p>
 
             <p>
-                I enjoy building useful, personalized custom solutions alot,
+                I enjoy building useful, personalized custom solutions a lot,
                 and satisfying my clients.
             </p>
 
@@ -738,8 +895,8 @@
 
             <p>
                 <strong>Note:</strong> I provide development services,
-                and hosting for bots under 100MB. Any higher, you have to
-                pay for hosting.
+                and hosting for most bots; but for really big ones,
+                you have to pay for hosting.
             </p>
 
         </div>
@@ -767,11 +924,11 @@
             <div class="contact-details">
 
                 <div class="contact-item">
-                    Discord: <strong>klks</strong>
+                    Discord: <strong>nanthedu</strong>
                 </div>
 
                 <div class="contact-item">
-                    painful.fan@gmail.com
+                    nanthedu@gmail.com
                 </div>
 
             </div>
@@ -788,9 +945,7 @@
 <footer>
 
     <div class="container">
-
-        © 2026 ECHOTYPE. All rights reserved.
-
+        © 2026 NanTheDu. All rights reserved.
     </div>
 
 </footer>
