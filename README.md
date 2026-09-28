@@ -1,2 +1,4 @@
-# loops-bots-and-websites.github.io
-# This is my portfolio
+# [nanthedu.dpdns.org](https://nanthedu.dpdns.org/)
+# This is my portfolio!!!
+Contact me !!!
+@nanthedu on Discord
