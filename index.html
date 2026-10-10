@@ -1,1175 +1,313 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>NANTHEDU | Discord Bot, Script & Website Developer</title>
-
-    <meta name="description"
-          content="NANTHEDU - Discord bot developer, automation and recon script developer, and simple website developer.">
-
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://nanthedu.dpdns.org/">
-    <meta property="og:title" content="NANTHEDU | Discord Bot, Script & Website Developer">
-    <meta property="og:description" content="Custom Discord bots, automation scripts, and simple, modern websites for communities, creators, and small projects.">
-    <meta property="og:image" content="https://nanthedu.dpdns.org/preview-banner.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta name="theme-color" content="#ff7a00">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="NANTHEDU | Discord Bot, Script & Website Developer">
-    <meta name="twitter:description" content="Custom Discord bots, automation scripts, and simple, modern websites for communities, creators, and small projects.">
-    <meta name="twitter:image" content="https://nanthedu.dpdns.org/preview-banner.png">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #000;
-            color: #fff;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-
-        body::before {
-            content: "";
-            position: fixed;
-            width: 650px;
-            height: 650px;
-            background: #ff7a00;
-            opacity: 0.14;
-            filter: blur(150px);
-            border-radius: 50%;
-            top: -250px;
-            left: -220px;
-            z-index: -2;
-            pointer-events: none;
-        }
-
-        body::after {
-            content: "";
-            position: fixed;
-            width: 600px;
-            height: 600px;
-            background: #ffd000;
-            opacity: 0.10;
-            filter: blur(160px);
-            border-radius: 50%;
-            right: -260px;
-            bottom: -220px;
-            z-index: -2;
-            pointer-events: none;
-        }
-
-        .background-glow {
-            position: fixed;
-            width: 450px;
-            height: 450px;
-            background: #ffb000;
-            opacity: 0.045;
-            filter: blur(140px);
-            border-radius: 50%;
-            top: 45%;
-            left: 40%;
-            z-index: -2;
-            pointer-events: none;
-        }
-
-
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-            background: rgba(0, 0, 0, 0.72);
-            border-bottom: 1px solid rgba(255, 174, 0, 0.15);
-        }
-
-        .nav-container {
-            max-width: 1150px;
-            margin: auto;
-            padding: 17px 25px;
-
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.35rem;
-            font-weight: 900;
-            letter-spacing: 0.5px;
-            color: #ff9d00;
-        }
-
-        .logo span {
-            color: #ffe000;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 27px;
-        }
-
-        nav a {
-            color: #e9e9e9;
-            text-decoration: none;
-            font-size: 0.94rem;
-            transition: 0.25s;
-        }
-
-        nav a:hover {
-            color: #ffb000;
-        }
-
-
-        .container {
-            max-width: 1150px;
-            margin: auto;
-            padding: 0 25px;
-        }
-
-        section {
-            padding: 105px 0;
-            position: relative;
-        }
-
-        .section-title {
-            font-size: clamp(2rem, 4vw, 2.7rem);
-            margin-bottom: 10px;
-            color: #fff;
-            letter-spacing: -1px;
-        }
-
-        .section-title::after {
-            content: "";
-            display: block;
-            width: 55px;
-            height: 4px;
-            margin-top: 12px;
-            border-radius: 99px;
-            background: linear-gradient(90deg, #ff7a00, #ffe000);
-        }
-
-        .section-subtitle {
-            color: #aaa;
-            margin-bottom: 45px;
-            margin-top: 15px;
-        }
-
-
-
-        .hero {
-            min-height: 91vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: "";
-            position: absolute;
-            width: 700px;
-            height: 700px;
-            right: -280px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: radial-gradient(
-                circle,
-                rgba(255, 174, 0, 0.16) 0%,
-                rgba(255, 120, 0, 0.07) 35%,
-                transparent 70%
-            );
-            pointer-events: none;
-        }
-
-        .hero-content {
-            max-width: 850px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 9px;
-            padding: 8px 15px;
-            border-radius: 999px;
-
-            background: rgba(255, 150, 0, 0.08);
-            border: 1px solid rgba(255, 190, 0, 0.35);
-
-            color: #ffc933;
-            font-size: 0.88rem;
-            margin-bottom: 22px;
-            box-shadow: 0 0 30px rgba(255, 150, 0, 0.07);
-        }
-
-        .badge::before {
-            content: "";
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: #ffae00;
-            box-shadow: 0 0 12px #ffae00;
-        }
-
-        .hero h1 {
-            font-size: clamp(3.5rem, 10vw, 7.4rem);
-            line-height: 0.95;
-            margin-bottom: 28px;
-            color: #fff;
-            letter-spacing: -5px;
-        }
-
-        .gradient-text {
-            background: linear-gradient(
-                90deg,
-                #ff7200,
-                #ff9d00,
-                #ffd000,
-                #fff06a
-            );
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: gradientMove 5s linear infinite;
-            filter: drop-shadow(0 0 25px rgba(255, 160, 0, 0.16));
-        }
-
-        @keyframes gradientMove {
-            to {
-                background-position: 200% center;
-            }
-        }
-
-        .hero p {
-            font-size: 1.17rem;
-            color: #bdbdbd;
-            max-width: 680px;
-            margin-bottom: 36px;
-        }
-
-        .hero p strong {
-            color: #fff;
-        }
-
-        .buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
-        }
-
-        .button {
-            display: inline-block;
-            padding: 13px 22px;
-            border-radius: 11px;
-
-            text-decoration: none;
-            font-weight: 750;
-
-            transition: 0.25s ease;
-        }
-
-        .button-primary {
-            background: linear-gradient(90deg, #ff7900, #ffc400);
-            color: #000;
-            box-shadow: 0 8px 30px rgba(255, 145, 0, 0.16);
-        }
-
-        .button-primary:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 14px 38px rgba(255, 170, 0, 0.28);
-        }
-
-        .button-secondary {
-            border: 1px solid rgba(255, 190, 0, 0.28);
-            color: #eee;
-            background: rgba(255, 170, 0, 0.035);
-        }
-
-        .button-secondary:hover {
-            border-color: #ffae00;
-            color: #ffc400;
-            background: rgba(255, 170, 0, 0.07);
-            transform: translateY(-4px);
-        }
-
-        /* ---------- Services ---------- */
-
-        .services {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-
-        .service-card {
-            position: relative;
-            padding: 34px;
-            background:
-                linear-gradient(145deg, rgba(255, 170, 0, 0.055), rgba(255, 255, 255, 0.015));
-            border: 1px solid rgba(255, 190, 0, 0.14);
-            border-radius: 20px;
-            overflow: hidden;
-            transition: 0.3s ease;
-        }
-
-        .service-card::before {
-            content: "";
-            position: absolute;
-            width: 170px;
-            height: 170px;
-            top: -100px;
-            right: -80px;
-            background: #ffae00;
-            opacity: 0.07;
-            filter: blur(60px);
-            border-radius: 50%;
-        }
-
-        .service-card:hover {
-            transform: translateY(-7px);
-            border-color: rgba(255, 174, 0, 0.45);
-            box-shadow: 0 18px 55px rgba(255, 150, 0, 0.08);
-        }
-
-        .service-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 13px;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #ff7900, #ffd000);
-            box-shadow: 0 8px 25px rgba(255, 150, 0, 0.18);
-        }
-
-        .service-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-            color: #fff;
-        }
-
-        .service-card p {
-            color: #a9a9a9;
-        }
-
-        /* ---------- Projects ---------- */
-
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-        }
-
-        .project-card {
-            background: rgba(8, 8, 8, 0.9);
-            border: 1px solid rgba(255, 190, 0, 0.13);
-            border-radius: 20px;
-            overflow: hidden;
-            transition: 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(255, 190, 0, 0.45);
-            box-shadow: 0 20px 60px rgba(255, 150, 0, 0.08);
-        }
-
-        .project-banner {
-            height: 165px;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-
-            background:
-                radial-gradient(circle at 25% 35%, rgba(255, 190, 0, 0.32), transparent 25%),
-                radial-gradient(circle at 75% 65%, rgba(255, 100, 0, 0.28), transparent 28%),
-                linear-gradient(135deg, #17100a, #080808);
-        }
-
-        .project-banner::before {
-            content: "";
-            position: absolute;
-            width: 240px;
-            height: 240px;
-            border: 1px solid rgba(255, 190, 0, 0.18);
-            border-radius: 50%;
-            box-shadow:
-                0 0 0 35px rgba(255, 170, 0, 0.035),
-                0 0 0 70px rgba(255, 170, 0, 0.025);
-        }
-
-        .project-banner::after {
-            content: "";
-            position: absolute;
-            width: 80px;
-            height: 80px;
-            border-radius: 22px;
-            background: linear-gradient(135deg, #ff7900, #ffd000);
-            transform: rotate(45deg);
-            opacity: 0.9;
-            box-shadow: 0 0 45px rgba(255, 170, 0, 0.25);
-        }
-
-        .project-content {
-            padding: 29px;
-        }
-
-        .project-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: #fff;
-        }
-
-        .project-content p {
-            color: #a9a9a9;
-            margin-bottom: 20px;
-        }
-
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 21px;
-        }
-
-        .tag {
-            padding: 5px 10px;
-            border-radius: 7px;
-            background: rgba(255, 170, 0, 0.075);
-            border: 1px solid rgba(255, 170, 0, 0.08);
-            color: #d8b94b;
-            font-size: 0.8rem;
-        }
-
-        /* ---------- Script cards ---------- */
-
-        .script-card .project-content pre {
-            margin-bottom: 21px;
-            padding: 13px 15px;
-            border-radius: 10px;
-            background: rgba(0, 0, 0, 0.6);
-            border: 1px solid rgba(255, 190, 0, 0.12);
-            color: #ffc933;
-            font-family: "Courier New", monospace;
-            font-size: 0.82rem;
-            overflow-x: auto;
-        }
-
-        /* ---------- About ---------- */
-
-        .about-box {
-            position: relative;
-            padding: 38px;
-            background:
-                linear-gradient(145deg, rgba(255, 170, 0, 0.055), rgba(255, 255, 255, 0.012));
-            border: 1px solid rgba(255, 190, 0, 0.14);
-            border-radius: 20px;
-            max-width: 850px;
-            overflow: hidden;
-        }
-
-        .about-box::before {
-            content: "";
-            position: absolute;
-            width: 250px;
-            height: 250px;
-            background: #ff8c00;
-            opacity: 0.055;
-            filter: blur(90px);
-            border-radius: 50%;
-            right: -100px;
-            top: -100px;
-        }
-
-        .about-box p {
-            color: #aaa;
-            margin-bottom: 16px;
-            position: relative;
-        }
-
-        .about-box p:last-child {
-            margin-bottom: 0;
-        }
-
-        .about-box strong {
-            color: #ffc400;
-        }
-
-        /* ---------- Contact ---------- */
-
-        .contact {
-            text-align: center;
-        }
-
-        .contact-box {
-            max-width: 760px;
-            margin: auto;
-            padding: 60px 30px;
-            border-radius: 24px;
-            position: relative;
-            overflow: hidden;
-
-            background:
-                radial-gradient(circle at 50% 0%, rgba(255, 190, 0, 0.16), transparent 48%),
-                linear-gradient(145deg, rgba(255, 120, 0, 0.08), rgba(255, 210, 0, 0.035));
-
-            border: 1px solid rgba(255, 190, 0, 0.2);
-            box-shadow: 0 25px 80px rgba(255, 150, 0, 0.06);
-        }
-
-        .contact-box h2 {
-            font-size: clamp(2rem, 5vw, 2.8rem);
-            margin-bottom: 14px;
-            color: #fff;
-        }
-
-        .contact-box p {
-            color: #aaa;
-            margin-bottom: 32px;
-        }
-
-        .contact-details {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .contact-item {
-            padding: 12px 18px;
-            border-radius: 10px;
-
-            background: rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255, 190, 0, 0.14);
-
-            color: #ccc;
-        }
-
-        .contact-item strong {
-            color: #ffc400;
-        }
-
-        /* ---------- Footer ---------- */
-
-        footer {
-            border-top: 1px solid rgba(255, 190, 0, 0.12);
-            padding: 30px 0;
-            text-align: center;
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        /* ---------- Tablet / Mobile ---------- */
-
-        @media (max-width: 900px) {
-            .services {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 700px) {
-            nav ul {
-                display: none;
-            }
-
-            .hero {
-                min-height: 82vh;
-            }
-
-            .hero h1 {
-                font-size: 3.6rem;
-                letter-spacing: -3px;
-            }
-
-            .hero p {
-                font-size: 1.05rem;
-            }
-
-            .services,
-            .projects {
-                grid-template-columns: 1fr;
-            }
-
-            section {
-                padding: 75px 0;
-            }
-
-            .service-card,
-            .project-content,
-            .about-box {
-                padding: 27px;
-            }
-
-            .project-banner {
-                height: 145px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NANTHEDU | Discord Bot, Script & Website Developer</title>
+<meta name="description" content="NANTHEDU - Discord bot developer, automation and recon script developer, and simple website developer.">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nanthedu.dpdns.org/">
+<meta property="og:title" content="NANTHEDU | Discord Bot, Script & Website Developer">
+<meta property="og:description" content="Custom Discord bots, automation scripts, and simple, modern websites for communities, creators, and small projects.">
+<meta property="og:image" content="https://nanthedu.dpdns.org/preview-banner.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="theme-color" content="#ff7a00">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="NANTHEDU | Discord Bot, Script & Website Developer">
+<meta name="twitter:description" content="Custom Discord bots, automation scripts, and simple, modern websites for communities, creators, and small projects.">
+<meta name="twitter:image" content="https://nanthedu.dpdns.org/preview-banner.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#100d0a; --sf:#1a1510; --ln:#2e261d; --tx:#f4ede4; --mu:#a79a8a;
+  --am:#ffa31a; --fl:#ff6a00; --ok:#7ddc8a; --bad:#ff6b5e;
+  --sans:"Bricolage Grotesque",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font:400 1.0625rem/1.65 var(--sans);background:var(--bg);color:var(--tx);overflow-x:hidden}
+body::before{content:"";position:fixed;top:-20%;left:-15%;width:60vw;height:60vw;background:radial-gradient(circle,rgba(255,106,0,.16),transparent 65%);z-index:-1;pointer-events:none}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--am);outline-offset:3px;border-radius:4px}
+
+/* layout: sticky intro on the left, work on the right */
+.shell{display:grid;grid-template-columns:minmax(0,400px) minmax(0,1fr);gap:clamp(40px,7vw,110px);max-width:1280px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
+aside{position:sticky;top:0;height:100vh;overflow-y:auto;scrollbar-width:none;display:flex;flex-direction:column;justify-content:space-between;gap:28px;padding:52px 0 36px}
+aside::-webkit-scrollbar{display:none}
+.logo{font-weight:800;font-size:1.35rem;letter-spacing:-.02em;color:var(--am);text-decoration:none}
+nav{display:flex;flex-direction:column;gap:2px;margin-top:22px}
+nav a{width:max-content;color:var(--mu);text-decoration:none;padding:3px 0;transition:color .2s,transform .2s}
+nav a:hover{color:var(--tx);transform:translateX(6px)}
+h1{font-size:clamp(2.3rem,4.2vw,3.3rem);line-height:1.04;letter-spacing:-.035em;font-weight:700}
+.lead{color:var(--mu);margin-top:18px;max-width:34ch}
+.pill{display:inline-flex;align-items:center;gap:9px;margin-top:20px;padding:6px 14px;border:1px solid var(--ln);border-radius:999px;font-size:.9rem;color:var(--tx)}
+.pill::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 10px var(--ok)}
+
+/* the one animated moment: a log that writes itself on load */
+.term{background:var(--sf);border:1px solid var(--ln);border-radius:12px;font:400 .76rem/1.75 var(--mono);overflow:hidden}
+.term .bar{padding:9px 14px;border-bottom:1px solid var(--ln);color:var(--mu)}
+.term div:last-child{padding:12px 14px;white-space:nowrap;overflow-x:auto}
+.term p{opacity:0;animation:show .01s forwards}
+.term p:nth-child(1){animation-delay:.5s}.term p:nth-child(2){animation-delay:1.4s}
+.term p:nth-child(3){animation-delay:2.2s}.term p:nth-child(4){animation-delay:3s}
+.term p:nth-child(5){animation-delay:3.7s}.term p:nth-child(6){animation-delay:4.4s}
+@keyframes show{to{opacity:1}}
+.g{color:var(--ok)}.r{color:var(--bad)}.m{color:var(--mu)}
+
+/* sections */
+main{padding:52px 0 40px}
+section{padding-bottom:84px}
+h2{font-size:clamp(1.7rem,3vw,2.2rem);letter-spacing:-.03em;line-height:1.1;font-weight:700}
+.sub{color:var(--mu);margin:8px 0 26px;max-width:52ch}
+
+/* project rows */
+.row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;padding:30px 0 30px 18px;border-top:1px solid var(--ln);position:relative;transition:background .25s}
+.row::before{content:"";position:absolute;left:0;top:30px;bottom:30px;width:3px;border-radius:3px;background:var(--ln);transition:background .25s}
+.row:hover::before{background:var(--fl)}
+.row h3{font-size:1.45rem;letter-spacing:-.02em;line-height:1.2}
+.row p{color:var(--mu);margin-top:8px;max-width:60ch}
+.row .cmd{font:400 .84rem/1.4 var(--mono);color:var(--am);background:var(--sf);border:1px solid var(--ln);border-radius:8px;padding:9px 13px;margin-top:14px;overflow-x:auto;white-space:nowrap}
+.cmd b{color:var(--mu);font-weight:400}
+.tags{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin-top:16px}
+.tags li{border:1px solid var(--ln);border-radius:999px;padding:2px 12px;font-size:.82rem;color:var(--mu)}
+.shot{display:block;width:100%;margin-top:18px;border-radius:10px;border:1px solid var(--ln)}
+.acts{display:flex;flex-direction:column;gap:10px;align-items:stretch}
+.btn{display:inline-block;text-align:center;padding:10px 18px;border-radius:9px;font:600 .94rem var(--sans);text-decoration:none;border:1px solid var(--ln);color:var(--tx);background:transparent;cursor:pointer;transition:border-color .2s,color .2s,background .2s}
+.btn:hover{border-color:var(--am);color:var(--am)}
+.btn.main{background:var(--am);border-color:var(--am);color:#1a1000}
+.btn.main:hover{background:#ffb84d;color:#1a1000}
+.row.next{border-top:1px dashed var(--ln)}
+.row.next::before{display:none}
+
+/* services */
+.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.svc div{border-top:2px solid var(--am);padding-top:16px}
+.svc h3{font-size:1.2rem;letter-spacing:-.02em}
+.svc p{color:var(--mu);margin-top:8px;font-size:1rem}
+
+/* about + contact */
+.about p{color:var(--mu);max-width:58ch;margin-top:14px}
+.about p:first-of-type{margin-top:0}
+.note{margin-top:26px;padding:4px 0 4px 18px;border-left:3px solid var(--fl);color:var(--tx);max-width:58ch}
+.ask{font-size:clamp(1.6rem,3.4vw,2.4rem);line-height:1.12;letter-spacing:-.03em;font-weight:700;max-width:20ch}
+.chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.chips .btn{padding:12px 20px}
+footer{border-top:1px solid var(--ln);color:var(--mu);font-size:.9rem;padding:26px 0 40px}
+
+@media (max-width:960px){
+  .shell{grid-template-columns:1fr;gap:0}
+  aside{position:static;height:auto;overflow:visible;padding:32px 0 8px}
+  nav{flex-direction:row;flex-wrap:wrap;gap:6px 22px}
+  nav a:hover{transform:none}
+  .lead{max-width:52ch}
+  main{padding-top:40px}
+}
+@media (max-width:700px){
+  .row{grid-template-columns:1fr}
+  .acts{flex-direction:row;flex-wrap:wrap}
+  .svc{grid-template-columns:1fr}
+  section{padding-bottom:64px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .term p{opacity:1;animation:none}
+  nav a,.row::before,.btn{transition:none}
+}
+</style>
 </head>
 
 <body>
+<!-- To add a screenshot to a project: put the image in a screenshots/ folder, then add
+     <img class="shot" src="screenshots/name.png" alt="What the screenshot shows">
+     right after that project's <ul class="tags">. -->
+<div class="shell">
 
-<div class="background-glow"></div>
+<aside>
+  <div>
+    <a class="logo" href="#top">NANTHEDU</a>
+    <nav aria-label="Sections">
+      <a href="#bots">Discord bots</a>
+      <a href="#scripts">Scripts and tools</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
 
-<!-- Navigation -->
+  <div id="top">
+    <h1>Discord bots, scripts and websites, built around what you need.</h1>
+    <p class="lead">Freelance developer for communities, creators and small projects. I host most bots too.</p>
+    <span class="pill">Taking new projects</span>
+  </div>
 
-<nav>
-    <div class="nav-container">
-
-        <div class="logo">
-            NANTHEDU
-        </div>
-
-        <ul>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#scripts">Scripts</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-
-            <li>
-                <a href="https://github.com/loop-bots-and-websites?tab=repositories"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    GitHub
-                </a>
-            </li>
-        </ul>
-
+  <div class="term" aria-hidden="true">
+    <div class="bar">uptime_monitor.py</div>
+    <div>
+      <p><span class="m">$</span> python uptime_monitor.py yoursite.com</p>
+      <p><span class="g">[14:57:03] UP</span>&nbsp;&nbsp;&nbsp;200&nbsp;&nbsp;628ms</p>
+      <p><span class="g">[14:58:03] UP</span>&nbsp;&nbsp;&nbsp;200&nbsp;&nbsp;611ms</p>
+      <p><span class="r">[14:59:03] DOWN</span>&nbsp;HTTP 503</p>
+      <p><span class="m">-&gt; Discord alert sent</span></p>
+      <p><span class="g">[15:02:03] UP</span>&nbsp;&nbsp;&nbsp;200&nbsp;&nbsp;640ms</p>
     </div>
-</nav>
+  </div>
+</aside>
 
+<main>
 
-<!-- Hero -->
+<section id="bots">
+  <h2>Discord bots</h2>
+  <p class="sub">Bots I've built for servers and communities.</p>
 
-<section class="hero">
-
-    <div class="container">
-
-        <div class="hero-content">
-
-            <div class="badge">
-                Discord Bot, Script & Website Developer
-            </div>
-
-            <h1>
-                Hey, I'm <span class="gradient-text">NANTHEDU.</span>
-            </h1>
-
-            <p>
-                I build <strong>custom Discord bots</strong>,
-                <strong>automation &amp; recon scripts</strong>, and
-                <strong>simple, modern websites</strong> for communities,
-                creators, and small projects.
-            </p>
-
-            <div class="buttons">
-
-                <a href="#projects" class="button button-primary">
-                    View My Work
-                </a>
-
-                <a href="#contact" class="button button-secondary">
-                    Contact Me
-                </a>
-
-            </div>
-
-        </div>
-
+  <article class="row">
+    <div>
+      <h3>TwilightSparkle</h3>
+      <p>A feature-rich community bot with moderation, economy, leveling, giveaways, logging and more.</p>
+      <ul class="tags"><li>Discord</li><li>PostgreSQL</li><li>Docker</li></ul>
     </div>
+    <div class="acts"><a class="btn" href="https://github.com/loop-bots-and-websites/TwilightSparkle-" target="_blank" rel="noopener noreferrer">View on GitHub</a></div>
+  </article>
 
+  <article class="row">
+    <div>
+      <h3>Moderation Bot</h3>
+      <p>Automates server administration, tracks member activity and keeps clear moderation logs.</p>
+      <ul class="tags"><li>Python</li><li>discord.py</li><li>Moderation</li></ul>
+    </div>
+    <div class="acts"><a class="btn" href="https://github.com/loop-bots-and-websites/server-management-bot" target="_blank" rel="noopener noreferrer">View on GitHub</a></div>
+  </article>
+
+  <article class="row">
+    <div>
+      <h3>Ranked 1v1 Scrims Bot</h3>
+      <p>Runs 1v1 scrims for competitive servers: match queues, player rankings and match stats.</p>
+      <ul class="tags"><li>Python</li><li>Matchmaking</li><li>Esports</li></ul>
+    </div>
+    <div class="acts"><a class="btn" href="https://github.com/loop-bots-and-websites/ranked-1v1-scrims-bot" target="_blank" rel="noopener noreferrer">View on GitHub</a></div>
+  </article>
 </section>
-
-
-<!-- Services -->
-
-<section id="services">
-
-    <div class="container">
-
-        <h2 class="section-title">What I Do</h2>
-
-        <p class="section-subtitle">
-            Simple, practical development for your project.
-        </p>
-
-        <div class="services">
-
-            <div class="service-card">
-
-                <div class="service-icon"></div>
-
-                <h3>Discord Bot Development</h3>
-
-                <p>
-                    Custom Discord bots with moderation, economy,
-                    leveling, utility commands, automation, and
-                    other features tailored to your server.
-                </p>
-
-            </div>
-
-
-            <div class="service-card">
-
-                <div class="service-icon"></div>
-
-                <h3>Scripts &amp; Automation</h3>
-
-                <p>
-                    Python tools that save you time: recon and
-                    lookup utilities, data cleanup, scheduled jobs,
-                    and automation for repetitive tasks.
-                </p>
-
-            </div>
-
-
-            <div class="service-card">
-
-                <div class="service-icon"></div>
-
-                <h3>Simple Websites</h3>
-
-                <p>
-                    Clean and responsive websites for communities,
-                    personal projects, small businesses, and other
-                    simple use cases.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- Projects -->
-
-<section id="projects">
-
-    <div class="container">
-
-        <h2 class="section-title">Featured Work</h2>
-
-        <p class="section-subtitle">
-            A few examples of projects I've worked on.
-        </p>
-
-        <div class="projects">
-
-            <!-- TwilightSparkle -->
-
-            <div class="project-card">
-
-                <div class="project-banner"></div>
-
-                <div class="project-content">
-
-                    <h3>TwilightSparkle</h3>
-
-                    <p>
-                        A feature-rich Discord community bot featuring
-                        moderation, economy, leveling, giveaways,
-                        logging, community tools, and more.
-                    </p>
-
-                    <div class="tags">
-                        <span class="tag">Discord</span>
-                        <span class="tag">Bot Development</span>
-                        <span class="tag">PostgreSQL</span>
-                        <span class="tag">Docker</span>
-                    </div>
-
-                    <a
-                        href="https://github.com/loop-bots-and-websites/TwilightSparkle-"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="button button-secondary">
-                        View Project
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- Moderation Bot -->
-
-            <div class="project-card">
-
-                <div class="project-banner"></div>
-
-                <div class="project-content">
-
-                    <h3>Moderation Bot</h3>
-
-                    <p>
-                        A dedicated Discord server management bot designed
-                        to automate server administration, track member activity,
-                        and handle moderation logs effectively.
-                    </p>
-
-                    <div class="tags">
-                        <span class="tag">Discord</span>
-                        <span class="tag">Python</span>
-                        <span class="tag">Moderation</span>
-                        <span class="tag">discord.py</span>
-                    </div>
-
-                    <a
-                        href="https://github.com/loop-bots-and-websites/server-management-bot"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="button button-secondary">
-                        View Project
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- Ranked 1v1 Scrims Bot -->
-
-            <div class="project-card">
-
-                <div class="project-banner"></div>
-
-                <div class="project-content">
-
-                    <h3>Ranked 1v1 Scrims Bot</h3>
-
-                    <p>
-                        A competitive Discord bot designed to manage 1v1 scrims,
-                        track player rankings, handle match queues, and report match stats.
-                    </p>
-
-                    <div class="tags">
-                        <span class="tag">Discord</span>
-                        <span class="tag">Bot Development</span>
-                        <span class="tag">Gaming / Esports</span>
-                        <span class="tag">Matchmaking</span>
-                    </div>
-
-                    <a
-                        href="https://github.com/loop-bots-and-websites/ranked-1v1-scrims-bot"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="button button-secondary">
-                        View Project
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- Cat Gen -->
-
-            <div class="project-card">
-
-                <div class="project-banner"></div>
-
-                <div class="project-content">
-
-                    <h3>Cat Gen</h3>
-
-                    <p>
-                        A simple cat image generator project.
-                    </p>
-
-                    <div class="tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">Cat Generator</span>
-                    </div>
-
-                    <a
-                        href="https://github.com/loop-bots-and-websites/Cat-Gen"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="button button-secondary">
-                        View Project
-                    </a>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- Scripts & Tools -->
 
 <section id="scripts">
+  <h2>Scripts and tools</h2>
+  <p class="sub">Command-line tools built on public data. Open source, free to download, made for legitimate use.</p>
 
-    <div class="container">
-
-        <h2 class="section-title">Scripts &amp; Tools</h2>
-
-        <p class="section-subtitle">
-            Command-line utilities built on public data. Open source, no
-            scraping of personal data, made for legitimate use.
-        </p>
-
-        <div class="projects">
-
-            <!-- Domain Recon -->
-
-            <div class="project-card script-card">
-
-                <div class="project-banner"></div>
-
-                <div class="project-content">
-
-                    <h3>Domain Recon</h3>
-
-                    <p>
-                        Passive recon for a domain you own or are allowed to
-                        assess. Pulls DNS records, checks SPF/DMARC, audits
-                        HTTPS security headers, reads TLS expiry, and lists
-                        subdomains from certificate transparency logs.
-                    </p>
-
-                    <pre>python domain_recon.py example.com</pre>
-
-                    <div class="tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">OSINT</span>
-                        <span class="tag">DNS</span>
-                        <span class="tag">CLI</span>
-                    </div>
-
-                    <a
-                        href="https://github.com/loop-bots-and-websites/domain-recon"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="button button-secondary">
-                        View Script
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- Email Finder -->
-
-            <div class="project-card script-card">
-
-                <div class="project-banner"></div>
-
-                <div class="project-content">
-
-                    <h3>Email Finder</h3>
-
-                    <p>
-                        Generates the most likely business email formats for a
-                        person at a company domain and checks that the domain
-                        can actually receive mail. Supports single lookups or
-                        a CSV batch, with JSON output.
-                    </p>
-
-                    <pre>python email_finder.py --first Jane --last Doe --domain example.com</pre>
-
-                    <div class="tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">Outreach</span>
-                        <span class="tag">MX Lookup</span>
-                        <span class="tag">CLI</span>
-                    </div>
-
-                    <a
-                        href="https://github.com/loop-bots-and-websites/email-finder"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="button button-secondary">
-                        View Script
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- Uptime Monitor -->
-
-            <div class="project-card script-card">
-
-                <div class="project-banner"></div>
-
-                <div class="project-content">
-
-                    <h3>Uptime Monitor</h3>
-
-                    <p>
-                        Watches your websites on a timer and sends a Discord
-                        alert when one goes down, then another when it
-                        recovers. No false-alarm spam, no extra packages
-                        to install.
-                    </p>
-
-                    <pre>python uptime_monitor.py --config sites.json</pre>
-
-                    <div class="tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">Automation</span>
-                        <span class="tag">Discord Webhooks</span>
-                        <span class="tag">Monitoring</span>
-                    </div>
-
-                    <a
-                        href="https://github.com/loop-bots-and-websites/uptime-monitor"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="button button-secondary">
-                        View Script
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- Future Scripts -->
-
-            <div class="project-card">
-
-                <div class="project-banner"></div>
-
-                <div class="project-content">
-
-                    <h3>More Coming Soon</h3>
-
-                    <p>
-                        I'm constantly working on new bots, scripts, and
-                        websites. More examples will appear here soon.
-                    </p>
-
-                    <div class="tags">
-                        <span class="tag">Automation</span>
-                        <span class="tag">Web Development</span>
-                        <span class="tag">Discord</span>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
+  <article class="row">
+    <div>
+      <h3>Domain Recon</h3>
+      <p>Passive checks on a domain you own or are allowed to assess: DNS records, SPF and DMARC, HTTPS security headers, certificate expiry and subdomains from public certificate logs.</p>
+      <p class="cmd"><b>$</b> python domain_recon.py example.com</p>
+      <ul class="tags"><li>Python</li><li>OSINT</li><li>DNS</li></ul>
     </div>
+    <div class="acts">
+      <a class="btn main" href="https://github.com/loop-bots-and-websites/domain-recon/archive/refs/heads/main.zip">Download ZIP</a>
+      <a class="btn" href="https://github.com/loop-bots-and-websites/domain-recon" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+    </div>
+  </article>
 
+  <article class="row">
+    <div>
+      <h3>Email Finder</h3>
+      <p>Generates the most likely business email formats for a person at a company domain and checks that the domain can receive mail. Works one person at a time or from a CSV.</p>
+      <p class="cmd"><b>$</b> python email_finder.py --first Jane --last Doe --domain example.com</p>
+      <ul class="tags"><li>Python</li><li>Outreach</li><li>MX lookup</li></ul>
+    </div>
+    <div class="acts">
+      <a class="btn main" href="https://github.com/loop-bots-and-websites/email-finder/archive/refs/heads/main.zip">Download ZIP</a>
+      <a class="btn" href="https://github.com/loop-bots-and-websites/email-finder" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+    </div>
+  </article>
+
+  <article class="row">
+    <div>
+      <h3>Uptime Monitor</h3>
+      <p>Checks your websites on a timer and sends a Discord alert when one goes down, then another when it recovers. No packages to install.</p>
+      <p class="cmd"><b>$</b> python uptime_monitor.py --config sites.json</p>
+      <ul class="tags"><li>Python</li><li>Automation</li><li>Discord webhooks</li></ul>
+    </div>
+    <div class="acts">
+      <a class="btn main" href="https://github.com/loop-bots-and-websites/uptime-monitor/archive/refs/heads/main.zip">Download ZIP</a>
+      <a class="btn" href="https://github.com/loop-bots-and-websites/uptime-monitor" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+    </div>
+  </article>
+
+  <article class="row">
+    <div>
+      <h3>Cat Gen</h3>
+      <p>A small cat image generator.</p>
+      <ul class="tags"><li>Python</li></ul>
+    </div>
+    <div class="acts"><a class="btn" href="https://github.com/loop-bots-and-websites/Cat-Gen" target="_blank" rel="noopener noreferrer">View on GitHub</a></div>
+  </article>
+
+  <article class="row next">
+    <div>
+      <h3>More on the way</h3>
+      <p>New bots, scripts and sites land here as they're finished. Have something in mind?</p>
+    </div>
+    <div class="acts"><a class="btn" href="#contact">Tell me about it</a></div>
+  </article>
 </section>
 
-
-<!-- About -->
-
-<section id="about">
-
-    <div class="container">
-
-        <h2 class="section-title">About Me</h2>
-
-        <div class="about-box">
-
-            <p>
-                I'm nanthedu, a freelancer and developer.
-                I've practised for a while now and am just starting out freelancing.
-            </p>
-
-            <p>
-                I enjoy building useful, personalized custom solutions a lot,
-                and satisfying my clients.
-            </p>
-
-            <p>
-                Projects are developed to fit the client's requests and needs,
-                whether that's a community bot, automation script,
-                or a simple website.
-            </p>
-
-            <p>
-                <strong>Note:</strong> I provide development services,
-                and hosting for most bots; but for really big ones,
-                you have to pay for hosting.
-            </p>
-
-        </div>
-
+<section id="services">
+  <h2>Services</h2>
+  <p class="sub">Practical development, scoped to your project.</p>
+  <div class="svc">
+    <div>
+      <h3>Discord bots</h3>
+      <p>Moderation, economy, leveling, utility commands and automation, tailored to your server.</p>
     </div>
-
+    <div>
+      <h3>Scripts and automation</h3>
+      <p>Recon and lookup tools, data cleanup, scheduled jobs and automation for repetitive tasks.</p>
+    </div>
+    <div>
+      <h3>Simple websites</h3>
+      <p>Clean, responsive sites for communities, personal projects and small businesses.</p>
+    </div>
+  </div>
 </section>
 
-
-<!-- Contact -->
-
-<section id="contact" class="contact">
-
-    <div class="container">
-
-        <div class="contact-box">
-
-            <h2>Let's Work Together</h2>
-
-            <p>
-                Have a Discord bot, script, or simple website in mind?
-                Feel free to get in touch.
-            </p>
-
-            <div class="contact-details">
-
-                <div class="contact-item">
-                    Discord: <strong>nanthedu</strong>
-                </div>
-
-                <div class="contact-item">
-                    nanthedu@gmail.com
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
+<section id="about" class="about">
+  <h2>About</h2>
+  <p class="sub"></p>
+  <p>I'm nanthedu, a freelancer and developer. I've been practising for a while and I'm just starting out freelancing.</p>
+  <p>I enjoy building useful, personalized solutions and making sure the client is happy with the result. Every project is built to fit your requests, whether that's a community bot, an automation script or a simple website.</p>
+  <p class="note">I include hosting for most bots. For really big ones, hosting is paid separately.</p>
 </section>
 
+<section id="contact">
+  <h2 class="ask">Have a bot, script or site in mind? Tell me what it should do.</h2>
+  <div class="chips">
+    <button class="btn main" type="button" data-copy="nanthedu">Discord: nanthedu (click to copy)</button>
+    <a class="btn" href="mailto:nanthedu@gmail.com">nanthedu@gmail.com</a>
+    <a class="btn" href="https://github.com/loop-bots-and-websites?tab=repositories" target="_blank" rel="noopener noreferrer">GitHub</a>
+  </div>
+</section>
 
-<!-- Footer -->
+<footer>© 2026 NanTheDu. All rights reserved.</footer>
 
-<footer>
+</main>
+</div>
 
-    <div class="container">
-        © 2026 NanTheDu. All rights reserved.
-    </div>
-
-</footer>
-
+<script>
+document.querySelectorAll('[data-copy]').forEach(function (b) {
+  b.addEventListener('click', async function () {
+    var old = b.textContent;
+    try {
+      await navigator.clipboard.writeText(b.dataset.copy);
+      b.textContent = 'Copied: ' + b.dataset.copy;
+      setTimeout(function () { b.textContent = old; }, 1600);
+    } catch (e) {}
+  });
+});
+</script>
 </body>
 </html>
