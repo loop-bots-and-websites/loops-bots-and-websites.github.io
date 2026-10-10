@@ -4,23 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>NANTHEDU | Discord Bot & Website Developer</title>
+    <title>NANTHEDU | Discord Bot, Script & Website Developer</title>
 
     <meta name="description"
-          content="NANTHEDU - Discord bot developer and simple website developer.">
+          content="NANTHEDU - Discord bot developer, automation and recon script developer, and simple website developer.">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://nanthedu.dpdns.org/">
-    <meta property="og:title" content="NANTHEDU | Discord Bot & Website Developer">
-    <meta property="og:description" content="Custom Discord bots and simple, modern websites for communities, creators, and small projects.">
+    <meta property="og:title" content="NANTHEDU | Discord Bot, Script & Website Developer">
+    <meta property="og:description" content="Custom Discord bots, automation scripts, and simple, modern websites for communities, creators, and small projects.">
     <meta property="og:image" content="https://nanthedu.dpdns.org/preview-banner.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="theme-color" content="#ff7a00">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="NANTHEDU | Discord Bot & Website Developer">
-    <meta name="twitter:description" content="Custom Discord bots and simple, modern websites for communities, creators, and small projects.">
+    <meta name="twitter:title" content="NANTHEDU | Discord Bot, Script & Website Developer">
+    <meta name="twitter:description" content="Custom Discord bots, automation scripts, and simple, modern websites for communities, creators, and small projects.">
     <meta name="twitter:image" content="https://nanthedu.dpdns.org/preview-banner.png">
 
     <style>
@@ -315,7 +315,7 @@
 
         .services {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 25px;
         }
 
@@ -459,6 +459,20 @@
             font-size: 0.8rem;
         }
 
+        /* ---------- Script cards ---------- */
+
+        .script-card .project-content pre {
+            margin-bottom: 21px;
+            padding: 13px 15px;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 190, 0, 0.12);
+            color: #ffc933;
+            font-family: "Courier New", monospace;
+            font-size: 0.82rem;
+            overflow-x: auto;
+        }
+
         /* ---------- About ---------- */
 
         .about-box {
@@ -563,7 +577,13 @@
             font-size: 0.9rem;
         }
 
-        /* ---------- Mobile ---------- */
+        /* ---------- Tablet / Mobile ---------- */
+
+        @media (max-width: 900px) {
+            .services {
+                grid-template-columns: 1fr;
+            }
+        }
 
         @media (max-width: 700px) {
             nav ul {
@@ -621,6 +641,7 @@
         <ul>
             <li><a href="#services">Services</a></li>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="#scripts">Scripts</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
 
@@ -646,7 +667,7 @@
         <div class="hero-content">
 
             <div class="badge">
-                Discord Bot & Website Developer
+                Discord Bot, Script & Website Developer
             </div>
 
             <h1>
@@ -654,7 +675,8 @@
             </h1>
 
             <p>
-                I build <strong>custom Discord bots</strong> and
+                I build <strong>custom Discord bots</strong>,
+                <strong>automation &amp; recon scripts</strong>, and
                 <strong>simple, modern websites</strong> for communities,
                 creators, and small projects.
             </p>
@@ -702,6 +724,21 @@
                     Custom Discord bots with moderation, economy,
                     leveling, utility commands, automation, and
                     other features tailored to your server.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon"></div>
+
+                <h3>Scripts &amp; Automation</h3>
+
+                <p>
+                    Python tools that save you time: recon and
+                    lookup utilities, data cleanup, scheduled jobs,
+                    and automation for repetitive tasks.
                 </p>
 
             </div>
@@ -880,8 +917,146 @@
 
             </div>
 
+        </div>
 
-            <!-- Future Project -->
+    </div>
+
+</section>
+
+
+<!-- Scripts & Tools -->
+
+<section id="scripts">
+
+    <div class="container">
+
+        <h2 class="section-title">Scripts &amp; Tools</h2>
+
+        <p class="section-subtitle">
+            Command-line utilities built on public data. Open source, no
+            scraping of personal data, made for legitimate use.
+        </p>
+
+        <div class="projects">
+
+            <!-- Domain Recon -->
+
+            <div class="project-card script-card">
+
+                <div class="project-banner"></div>
+
+                <div class="project-content">
+
+                    <h3>Domain Recon</h3>
+
+                    <p>
+                        Passive recon for a domain you own or are allowed to
+                        assess. Pulls DNS records, checks SPF/DMARC, audits
+                        HTTPS security headers, reads TLS expiry, and lists
+                        subdomains from certificate transparency logs.
+                    </p>
+
+                    <pre>python domain_recon.py example.com</pre>
+
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">OSINT</span>
+                        <span class="tag">DNS</span>
+                        <span class="tag">CLI</span>
+                    </div>
+
+                    <a
+                        href="https://github.com/loop-bots-and-websites/domain-recon"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="button button-secondary">
+                        View Script
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Email Finder -->
+
+            <div class="project-card script-card">
+
+                <div class="project-banner"></div>
+
+                <div class="project-content">
+
+                    <h3>Email Finder</h3>
+
+                    <p>
+                        Generates the most likely business email formats for a
+                        person at a company domain and checks that the domain
+                        can actually receive mail. Supports single lookups or
+                        a CSV batch, with JSON output.
+                    </p>
+
+                    <pre>python email_finder.py --first Jane --last Doe --domain example.com</pre>
+
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Outreach</span>
+                        <span class="tag">MX Lookup</span>
+                        <span class="tag">CLI</span>
+                    </div>
+
+                    <a
+                        href="https://github.com/loop-bots-and-websites/email-finder"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="button button-secondary">
+                        View Script
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Uptime Monitor -->
+
+            <div class="project-card script-card">
+
+                <div class="project-banner"></div>
+
+                <div class="project-content">
+
+                    <h3>Uptime Monitor</h3>
+
+                    <p>
+                        Watches your websites on a timer and sends a Discord
+                        alert when one goes down, then another when it
+                        recovers. No false-alarm spam, no extra packages
+                        to install.
+                    </p>
+
+                    <pre>python uptime_monitor.py --config sites.json</pre>
+
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Automation</span>
+                        <span class="tag">Discord Webhooks</span>
+                        <span class="tag">Monitoring</span>
+                    </div>
+
+                    <a
+                        href="https://github.com/loop-bots-and-websites/uptime-monitor"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="button button-secondary">
+                        View Script
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Future Scripts -->
 
             <div class="project-card">
 
@@ -892,12 +1067,12 @@
                     <h3>More Coming Soon</h3>
 
                     <p>
-                        I'm constantly working on new projects and
-                        expanding my portfolio. More examples will
-                        appear here soon.
+                        I'm constantly working on new bots, scripts, and
+                        websites. More examples will appear here soon.
                     </p>
 
                     <div class="tags">
+                        <span class="tag">Automation</span>
                         <span class="tag">Web Development</span>
                         <span class="tag">Discord</span>
                     </div>
@@ -935,7 +1110,7 @@
 
             <p>
                 Projects are developed to fit the client's requests and needs,
-                whether that's a community bot, automation system,
+                whether that's a community bot, automation script,
                 or a simple website.
             </p>
 
@@ -963,7 +1138,7 @@
             <h2>Let's Work Together</h2>
 
             <p>
-                Have a Discord bot or simple website in mind?
+                Have a Discord bot, script, or simple website in mind?
                 Feel free to get in touch.
             </p>
 
